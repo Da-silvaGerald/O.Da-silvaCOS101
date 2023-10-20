@@ -1,11 +1,11 @@
 fn main(){
 
-     let p:u64=210_000;
-     let r:u64=3;
-     let n:u64=5;
+     let p:f64=210_000.0;
+     let r:f64=5.0;
+     let n:f64=3.0;
 
      //compound interest depreciation
-     let a=p*((1+(r/100))^n);
+     let a=p*((1.0-(r/100.0)).powf(n));
      println!("The value is {}",a)
-
+     
 }

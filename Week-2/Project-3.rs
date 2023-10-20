@@ -5,7 +5,7 @@ fn main(){
      let n:u64=5;
 
      //compound interest depreciation
-     let a=p*(1+(r/100))^n;
+     let a=p*((1+(r/100))^n);
      println!("The value is {}",a)
 
 }

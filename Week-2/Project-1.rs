@@ -4,7 +4,7 @@ fn main(){
        let n = 5.0;
 
        //compound interest
-       let a = p*(1.0+(r/100.0))n;
+       let a = p*(1.0+(r/100.0))*n;
        println!("The amount is {}",a);
        let ci = a-p;
        println!("The compound interest is {}",ci)

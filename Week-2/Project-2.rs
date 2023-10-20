@@ -20,11 +20,11 @@ fn main(){
       println!("This is the quantity for {} {} And this is the price: {}","ACER:",qa,a);
 
       //total amount
-      let ta=((qt*t)+(qm*m)+(qh*h)+(qd*d)+(qa*a));
+      let ta=(qt*t)+(qm*m)+(qh*h)+(qd*d)+(qa*a);
       println!("The total Amount is {}",ta);
 
       //Average
-      let avg= (ta/(t+m+h+d+a));
+      let avg= ta/(qt+qm+qh+qd+qa);
       println!("The average is {}",avg)
 }      
 

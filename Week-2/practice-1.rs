@@ -1,8 +1,6 @@
-fn mainn(){
+fn main(){
 	  
-	  println("Welcome to Rust programming");
+	  println!("Welcome to Rust programming");
 
-	  println("Henceforth you shall be called RUSTACIANS");
-
-	  
-}
+	  println!("Henceforth you shall be called RUSTACIANS");
+	  }

@@ -5,7 +5,8 @@ fn main(){
      let n:f64=3.0;
 
      //compound interest depreciation
-     let a=p*((1.0-(r/100.0)).powf(n));
+     let a=p*((1.0-(r/100.0)).powf
+     	(n));
      println!("The value is {}",a)
      
 }

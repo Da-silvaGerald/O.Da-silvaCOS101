@@ -16,13 +16,10 @@ fn main() {
 
     println!("Enter the time taken to cover this distance: ");
     io::stdin().read_line(&mut input2).expect("Not a valid string");
-    let mut t:f32 = input2.trim().parse().expect("Not a valid number");
-    // Change to seconds
-    t = t * 360.0;
-     println!("The time in seconds is: {}",t);
+    let t:f32 = input2.trim().parse().expect("Not a valid number");    
      
     // Finding speed
-    let unit = "Kilometres/second"; 
+    let unit = "Kilometres/Hour"; 
     let speed = d / t;
     println!("the speed of the car is: {} {}",speed,unit);
 

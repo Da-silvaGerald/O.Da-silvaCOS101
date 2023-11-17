@@ -67,19 +67,18 @@ loop{
     let age = 2023 - dob;
     println!("Your age is: {}",age);
 
-    let amount_a = 1_200_00 - ((20/100)*1_200_000);
-    let amount_b = 550_00 - ((5/100)*550_000);
-    let amount_c = 1_500_00 - ((15/100)*1_500_000);
-    let amount_d = 800_00 - ((10/100)*800_000);
-    let amount_e = 450_000 - ((10/100)*450_000);
+    let amount_a = 960_000;
+    let amount_b = 547_250;
+    let amount_c = 1_477_500;
+    let amount_d = 792_000;
+    let amount_e = 445_500;
 
     if input7 == "Alzheimer" && age > 50 && children > 4 && input8 == "Akpabom"
     {
     	println!("Your amount is: {}",amount_a);
     }
     else if input7 == "Arrhythima" && age == 30 && siblings > 4 && input8 == "Ngbauji"
-        {
-    	
+    {
     	println!("Your amount is: {}",amount_b);
     }
     else if input7 == "Chronic Kidney Disease" && age > 40 && siblings > 3 && children > 3 && input8 == "Atabrikang"
@@ -113,6 +112,9 @@ loop{
     else if input7 == "Arthritis"
     {
     	println!("Your price is 450,000");
+    }
+    else{
+        println!("We don't treat that here");
     }
     if patient_no > 100
     {

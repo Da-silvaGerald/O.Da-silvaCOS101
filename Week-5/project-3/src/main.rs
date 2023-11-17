@@ -36,7 +36,7 @@ use std::io;
      		continue;
      	}
      }
-     println!("Your old balance is {}",total);
+    println!("Your old balance is {}",total);
     if total > 10_000 {
     	let new_balance = total - ((5 / 100) * total);  	
     	println!("Your new balance is {}",new_balance);

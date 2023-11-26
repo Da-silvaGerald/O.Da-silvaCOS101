@@ -67,12 +67,12 @@ loop{
     let age = 2023 - dob;
     println!("Your age is: {}",age);
 
-    let amount_a = 960_000;
-    let amount_b = 547_250;
-    let amount_c = 1_477_500;
-    let amount_d = 792_000;
-    let amount_e = 445_500;
-
+    let mut discounted_price = 0
+    let amount_b = 550_000;
+    let amount_c = 1__500_000;
+    let amount_d = 800_000;
+    let amount_e = 450_00;
+    let amount_a = 1_200_000;
     if input7 == "Alzheimer" && age > 50 && children > 4 && input8 == "Akpabom"
     {
     	println!("Your amount is: {}",amount_a);

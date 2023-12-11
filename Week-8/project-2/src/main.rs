@@ -1,66 +1,54 @@
-// Programme for Ernest & Young Global limited 
+use std::io;
 
 fn main() {
-   // Create empty vectors 
-   let mut interview_num : Vec<i64> = Vec::new();
-   let mut name : Vec<String> = Vec::new();
-   let mut age  : Vec<i32> = Vec::new();
-   let mut marital_status : Vec<bool> = Vec::new();
-   let mut work_experience : Vec<i32> = Vec::new();
-  
-   // Push new elements into
-   let mut input1 = String::new();
-   println!("How many Interviewees are we having today?");
-   std::io::stdin().read_line(&mut input1).expect("Not a valid string");
-   let interviewee_num:i32 = input1.trim().parse().expect("Not a valid integer");
-  
-   let mut x = 0;
-  for count in 0..interviewee_num {
-  	let mut input2 = String::new();
-  	println!("Enter interview number {}", count+1);
-   	std::io::stdin().read_line(&mut input2).expect("Failed to read input");
-   	let new_interview_num:i64 = input2.trim().parse().expect("Invalid Input");
-   	interview_num.push(new_interview_num);
+    let mut developers: Vec<(String, u32, String)> = Vec::new();
 
-   	let mut input3 = String::new();
-   	println!("Enter your name: ");
-   	std::io::stdin().read_line(&mut input3).expect("Not a valid string");
-   	let new_name:String = input3.trim().parse().expect("Invalid Input");
-   	name.push(new_name);
+    // Gather developer information from the user
+    loop {
+        println!("Enter developer name (or 'done' to finish):");
+        let mut name = String::new();
+        io::stdin().read_line(&mut name).expect("Failed to read input");
+        let name = name.trim();
 
-   	let mut input4 = String::new();
-   	println!("Enter your age: " );
-   	std::io::stdin().read_line(&mut input4).expect("Not a valid string");
-   	let new_age:i32 = input4.trim().parse().expect("Not a valid integer");
-   	age.push(new_age);
+        if name.to_lowercase() == "done" {
+            break;
+        }
 
-    let mut input5 = String::new();
-   	println!("Are you married?" );
-   	std::io::stdin().read_line(&mut input5).expect("Not a valid string");
-   	let new_marital_status:bool = input5.trim().parse().expect("Invalid Input");
-   	marital_status.push(new_marital_status);
+        println!("Enter years of experience:");
+        let mut experience = String::new();
+        io::stdin().read_line(&mut experience).expect("Failed to read input");
+        let experience: u32 = experience.trim().parse().expect("Invalid input");
 
-   	let mut input6 = String::new();
-   	println!("How many years of work experience do you have?" );
-   	std::io::stdin().read_line(&mut input6).expect("Not a valid string");
-   	let new_work_experience:i32 = input6.trim().parse().expect("Invalid Input");
-    work_experience.push(new_work_experience);  
+        println!("Enter preferred language of Programmingz:");
+        let mut programming_language = String::new();
+        io::stdin()
+            .read_line(&mut programming_language)
+            .expect("Failed to read input");
+        let programming_language = programming_language.trim().to_string();
 
-    
-    if work_experience > x
-    {
-    let x = work_experience;
-    let y = work_experience[i];
+        developers.push((name.to_string(), experience, programming_language));
     }
-   }
 
-   // Determining the interviewee with the most work experience
+    /* Find the developer with the highest experience */
+    let mut max_experience = 0;
+    let mut max_name = String::new();
+    let mut max_language = String::new();
+    for &(ref name, experience, ref programming_language) in &developers {
+        if experience > max_experience {
+            max_experience = experience;
+            max_name = name.clone();
+            max_language = programming_language.clone();
+        }
+    }
 
-   
-   println!("The employee with the highest work experience:
-             Name: {}
-             Age: {}
-             Marital Status: {}
-             Work experience: {}",name[i],age[i],marital_status[i],y);  
-   
+    // Display the result
+    if max_experience > 0 {
+        println!(
+            "The developer with the highest experience is {}", max_name);
+        println!("Language: {} ", max_language);
+        println!("Years of experience: {}", max_experience);
+    } else {
+       
+        println!("No developers found.");
+}
 }

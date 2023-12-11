@@ -1,263 +1,86 @@
-// Rust program for determiing the position of staff
+// Rust program to validate Staff level using vectors.
+fn main() 
+{
+    // Creating an empty vector string
+    let _public_servant = vec!["APS 1-2","APS 3-5", "APS 5-8", "EL1 8-10", "EL2 10-13", "SES"];
 
-use std::io;
+    let _job = vec!["Office Administrator", "Academic", "Lawyer", "Teacher"];
 
-fn main() {
+    let _office_admin = vec!["Intern", "Administrator", "Senior Administrator", "Office Manager", "Director", "CEO"];
 
- let public_servant = vec!["Office Administrator","Academic","Lawyer",
- "Teacher"]; 
- let mut input1 = String::new();
- let mut input2 = String::new();
- let mut input3 = String::new();
- 
- println!("Welcome to the Public Service APS Level Checker For The FGoN");
- io::stdin().read_line(&mut input1).expect("Not a valid string");
+    let _academic = vec!["-", "Research Assistant", "PhD Candidate", "Post-Doc Researcher", "Senior Lecutrer", "Dean"];
 
- println!("We only Check levels for the following:
- 	       {:?}
- 	       {:?}
- 	       {:?}
- 	       {:?}",public_servant[0],public_servant[1],public_servant[2],
- 	       public_servant[3]);
+    let _lawyer = vec!["Paralegal", "Junior Associate", "Associate", "Senior Associate 1-2", "Senior Associate 3-4", "Partner"];
 
-println!("How many Staff are checking their levels today?");
-io::stdin().read_line(&mut input2).expect("Not a valid string");
-let staff_number:i32 = input2.trim().parse().expect("Not a valid Integer");
-let mut x = 0;
-x+=1;
-loop{
-    
-	println!("Enter 1 for {:?}
-		      Enter 2 for {:?}
-		      Enter 3 for {:?}
-		      Enter 4 for {:?}",public_servant[0],public_servant[1],public_servant[2],
- 	       public_servant[3]);
+    let _teacher = vec!["Placement", "Classroom Teacher", "Senior Teacher", "Leading Teacher", "Deputy Principal", "Principal"];
 
-	println!("What kind of public sevant are you?");
-	io::stdin().read_line(&mut input3).expect("Not a valid string");
-	let ps:i32 = input3.trim().parse().expect("Not a valid Integer");
-    if ps == 1
-    {
-        office_administrator();
-    }
-    else if ps == 2
-    {
-        academic();
-    }
-    else if ps == 3
-    {
-        lawyer();
-    }
-    else if ps == 4
-    {
-    	teacher();
-    }
-    else 
-    {
-    	println!("We don't check for this public service");
-    }  
-    if x == staff_number
-    {
-    break;
-    } 
-    }
-   
-    println!("Thank you for using our service :)");
-}
+    println!("Welcome to the Public Service APS level checker !!!");
+    println!("");
+    println!("The Public Service APS level checker only checks the APS for {}, {}, {}, {}", _job[0], _job[1], _job[2], _job[3]);
+    println!("");
+    println!("How many staffs are checking their staff level?");
+    let mut input = String::new();
+    std::io::stdin().read_line(&mut input).expect("Failed to read input");
+    let _staff_num:i32 = input.trim().parse().expect("Invalid input");
 
-fn office_administrator(){
-	let mut input1 = String::new();
+    for _staffs in 0.._staff_num
+    {
+        println!("\nEnter 1 for {}", _job[0]);
+        println!("Enter 2 for {}", _job[1]);
+        println!("Enter 3 for {}", _job[2]);
+        println!("Enter 4 for {}", _job[3]);
+        println!("");
+        println!("What is your career choice ?");
+        let mut input = String::new();
+        std::io::stdin().read_line(&mut input).expect("Failed to read input");
+        let _staff_career:i32 = input.trim().parse().expect("Invalid Input");
 
-	let office_admininstrator = vec!["Intern","Administrator",
-    "Senior administrator","Office Manager","Director","CEO"];
+        println!("What is your work experience ?");
+        let mut input_1 = String::new();
+        std::io::stdin().read_line(&mut input_1).expect("Failed to read input");
+        let _staff_experience:i32 = input_1.trim().parse().expect("Invalid input");
 
-    let level = vec!["APS 1-2","APS 3-5","APS 5-8","EL1 8-10",
-    "EL2 10-13", "SES"];
+        if _staff_career == 1 || _staff_career == 2 || _staff_career == 3 || _staff_career == 4
+        {
+            println!("What is your occupation ?");
+            let mut input = String::new();
+            std::io::stdin().read_line(&mut input).expect("Failed to read input");
+            let staff_career_level = input.trim();
 
-	println!("How many years of experience do you have?");
-    io::stdin().read_line(&mut input1).expect("Not a valid input");
-    let experience:i32 = input1.trim().parse().expect("Not a valid integer");
+            if staff_career_level == _office_admin[0] || staff_career_level == _lawyer[0] || staff_career_level == _teacher[0] && _staff_experience > 1 && _staff_experience <= 2
+            {
+                println!("You hold the position of {}", _public_servant[0]);
+            }
 
-    
-	if experience == 1 || experience == 2 
-	{
-		println!("You are an {} and you are at the level {}"
-            ,office_admininstrator[0],level[0] );
-	}
-    else if experience >=3 && experience <= 5
-    {
-        println!("You are an {} and you are at the level {}"
-            ,office_admininstrator[1],level[1]);
-    }
-    else if experience >=5 && experience <= 8
-    {
-        println!("You are a {} and you are at the level {}"
-            ,office_admininstrator[2],level[2]);
-    }
-    else if experience >=8 && experience <= 10
-    {
-        println!("You are an {} and you are at the level {}"
-            ,office_admininstrator[3],level[3]);
-    }
-    else if experience >=10 && experience <= 13
-    {
-        println!("You are a {} and you are at the level {}"
-            ,office_admininstrator[4],level[4]);
-    }
-    else if experience <= 13
-    {
-        println!("You are a {} and you are at the level {}"
-            ,office_admininstrator[5],level[5]);
-    }
-    else 
-    {
-        println!("Not a enough work experience");
-    }
-}
-fn academic(){
-    let mut input1 = String::new();
+            else if staff_career_level == _office_admin[1] || staff_career_level == _academic[1] || staff_career_level == _lawyer[1] || staff_career_level == _teacher[1] && _staff_experience > 3 && _staff_experience <= 5
+            {
+                println!("You hold the position of {}", _public_servant[1]);
+            }
 
-    let academic = vec!["N/A","Research Assistant","PhD Candidate",
-    "Post-Doc Researcher","Senior lecturer","Dean"];
+            else if staff_career_level == _office_admin[2] || staff_career_level == _academic[2] || staff_career_level == _lawyer[2] || staff_career_level == _teacher[2] && _staff_experience > 5 && _staff_experience <= 8
+            {
+                println!("You hold the position of {}", _public_servant[2]);
+            }
 
-    let level = vec!["APS 1-2","APS 3-5","APS 5-8","EL1 8-10",
-    "EL2 10-13", "SES"];
+            else if staff_career_level == _office_admin[3] || staff_career_level == _academic[3] || staff_career_level == _lawyer[3] || staff_career_level == _teacher[3] && _staff_experience > 8 && _staff_experience <= 10
+            {
+                println!("You hold the position of {}", _public_servant[3]);
+            }
 
-    println!("How many years of experience do you have?");
-    io::stdin().read_line(&mut input1).expect("Not a valid input");
-    let experience:i32 = input1.trim().parse().expect("Not a valid integer");
+            else if staff_career_level == _office_admin[4] || staff_career_level == _academic[4] || staff_career_level == _lawyer[4] || staff_career_level == _teacher[4] && _staff_experience > 10 && _staff_experience <= 13
+            {
+                println!("You hold the position of {}", _public_servant[4]);
+            }
 
-    
-    if experience == 1 || experience == 2 
-    {
-        println!("{} and you are at the level {}"
-            ,academic[0],level[0] );
-    }
-    else if experience >=3 && experience <= 5
-    {
-        println!("You are a {} and you are at the level {}"
-            ,academic[1],level[1]);
-    }
-    else if experience >=5 && experience <= 8
-    {
-        println!("You are a {} and you are at the level {}"
-            ,academic[2],level[2]);
-    }
-    else if experience >=8 && experience <= 10
-    {
-        println!("You are a {} and you are at the level {}"
-            ,academic[3],level[3]);
-    }
-    else if experience >=10 && experience <= 13
-    {
-        println!("You are a {} and you are at the level {}"
-            ,academic[4],level[4]);
-    }
-    else if experience <= 13
-    {
-        println!("You are a {} and you are at the level {}"
-            ,academic[5],level[5]);
-    }
-    else 
-    {
-        println!("Not a enough work experience");
-    }
-}
-fn lawyer(){
-    let mut input1 = String::new();
+            else if staff_career_level == _office_admin[5] || staff_career_level == _academic[5] || staff_career_level == _lawyer[5] || staff_career_level == _teacher[5] && _staff_experience > 13
+            {
+                println!("You hold the position of {}", _public_servant[5]);
+            }
 
-    let lawyer = vec!["Paralegal","Junior Associate","Associate",
-    "Senior Associate 1-2","Senior Associate 3-4","Partner"];
-
-    let level = vec!["APS 1-2","APS 3-5","APS 5-8","EL1 8-10",
-    "EL2 10-13", "SES"];
-
-    println!("How many years of experience do you have?");
-    io::stdin().read_line(&mut input1).expect("Not a valid input");
-    let experience:i32 = input1.trim().parse().expect("Not a valid integer");
-
-    
-    if experience == 1 || experience == 2 
-    {
-        println!("You are a {} and you are at the level {}"
-            ,lawyer[0],level[0] );
-    }
-    else if experience >=3 && experience <= 5
-    {
-        println!("You are a {} and you are at the level {}"
-            ,lawyer[1],level[1]);
-    }
-    else if experience >=5 && experience <= 8
-    {
-        println!("You are an {} and you are at the level {}"
-            ,lawyer[2],level[2]);
-    }
-    else if experience >=8 && experience <= 10
-    {
-        println!("You are a {} and you are at the level {}"
-            ,lawyer[3],level[3]);
-    }
-    else if experience >=10 && experience <= 13
-    {
-        println!("You are a {} and you are at the level {}"
-            ,lawyer[4],level[4]);
-    }
-    else if experience <= 13
-    {
-        println!("You are a {} and you are at the level {}"
-            ,lawyer[5],level[5]);
-    }
-    else 
-    {
-        println!("Not a enough work experience");
-    }
-}
-fn teacher(){
-    let mut input1 = String::new();
-
-    let teacher = vec!["Placement","Classroom teacher","Snr teacher",
-    "Leading teacher","Deputy principal","Principal"];
-
-    let level = vec!["APS 1-2","APS 3-5","APS 5-8","EL1 8-10",
-    "EL2 10-13", "SES"];
-
-    println!("How many years of experience do you have?");
-    io::stdin().read_line(&mut input1).expect("Not a valid input");
-    let experience:i32 = input1.trim().parse().expect("Not a valid integer");
-
-    
-    if experience == 1 || experience == 2 
-    {
-        println!("You are a {} and you are at the level {}"
-            ,teacher[0],level[0] );
-    }
-    else if experience >=3 && experience <= 5
-    {
-        println!("You are a {} and you are at the level {}"
-            ,teacher[1],level[1]);
-    }
-    else if experience >=5 && experience <= 8
-    {
-        println!("You are a {} and you are at the level {}"
-            ,teacher[2],level[2]);
-    }
-    else if experience >=8 && experience <= 10
-    {
-        println!("You are a {} and you are at the level {}"
-            ,teacher[3],level[3]);
-    }
-    else if experience >=10 && experience <= 13
-    {
-        println!("You are a {} and you are at the level {}"
-            ,teacher[4],level[4]);
-    }
-    else if experience <= 13
-    {
-        println!("You are a {} and you are at the level {}"
-            ,teacher[5],level[5]);
-    }
-    else 
-    {
-        println!("Not a enough work experience");
-    }
+            else 
+            {
+                println!("Sorry.. Unfortunately You do not hold any public service postition.");
+            }
+        }
+    }
 }

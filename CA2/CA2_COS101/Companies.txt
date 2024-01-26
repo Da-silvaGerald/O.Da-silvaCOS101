@@ -1,0 +1,2 @@
+					 Company's Database
+Establishment Date  Company Name                 Shares     Liabilities   Percentage leverages 1965Cadbury Nigeria Plc1500000055000001001974Champion breweries Plc2500000080000002001970Dangote Sugar Refinery Plc180000001000000001960Flour Mills Nigeria Plc3200000040000007001961Nestle Nigeria Plc800000015000004001923Unilever Nigeria Plc37000000110000002001906Honeywell Nigeria Plc3400000090000002001946Nigerian Breweries Plc3000000012000000100
